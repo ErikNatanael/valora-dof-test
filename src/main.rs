@@ -97,7 +97,7 @@ impl Artist for LineDOF {
         let m = 0.4;
         let e = 5.5;
         // draw the scene dot per dot one line at a time
-        for _ in 0..100000 { //30000
+        for _ in 0..30000 { //30000
             for l in &self.lines {
                 // println!("New point");
                 // Select a point, v = lerp(a, b, rnd()), on l. 
@@ -115,11 +115,11 @@ impl Artist for LineDOF {
                 // Project w into 2D, and draw a pixel/dot.
                 // Project by just ignoring the z position
                 // draw with line 
-                canvas.move_to(w);
-                canvas.line_to(P2::new(w.x + 1., w.y));
-                canvas.stroke();
+                // canvas.move_to(w);
+                // canvas.line_to(P2::new(w.x + 1., w.y));
+                // canvas.stroke();
                 // draw with square Ngon (crashes at large number of iterations per frame)
-                // canvas.paint(Filled(Ngon::square(w, 1.)));
+                canvas.paint(Filled(Ngon::square(w, 1.)));
             }
         }
     }
